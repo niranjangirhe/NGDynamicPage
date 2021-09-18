@@ -27,6 +27,7 @@ function Get(yourUrl) {
     document.getElementById("linkedin").href = jsonobj.linkedin
     document.getElementById("insta").href = jsonobj.insta
     document.getElementById("mail").innerHTML = jsonobj.mail
+    document.getElementById("contactpara1").innerHTML = jsonobj.contactpara1
     document.getElementById("address").innerHTML = jsonobj.address
     document.getElementById("mailaction").action = "https://formsubmit.co/"+ jsonobj.mail
     btnlink.push(jsonobj.btn0link)
