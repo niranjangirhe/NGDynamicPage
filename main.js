@@ -1,6 +1,5 @@
 var jsonobj;
 var intenturl = window.location.href;
-console.log(intenturl);
 var btnlink=[];
 LoadFirst()
 function Get(yourUrl) {
