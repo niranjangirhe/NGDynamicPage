@@ -4,10 +4,9 @@ console.log(intenturl);
 var btnlink=[];
 LoadFirst()
 function Get(yourUrl) {
-    var Httpreq = new XMLHttpRequest(); // a new request
+    var Httpreq = new XMLHttpRequest();
     Httpreq.open("GET", yourUrl, false);
     Httpreq.send(null);
-    console.log(Httpreq.responseText+"done")
     jsonobj = JSON.parse(Httpreq.responseText);
     document.getElementById("pgtitle0").innerHTML = jsonobj.pgtitle
     document.getElementById("pgtitle1").innerHTML = jsonobj.pgtitle
@@ -30,20 +29,20 @@ function Get(yourUrl) {
     document.getElementById("mail").innerHTML = jsonobj.mail
     document.getElementById("address").innerHTML = jsonobj.address
     document.getElementById("mailaction").action = "https://formsubmit.co/"+ jsonobj.mail
-    console.log("hi",jsonobj.title1,jsonobj.title2,jsonobj.title3,jsonobj.para1,jsonobj.para2,jsonobj.para3,jsonobj.heading2,jsonobj.subtitle2,jsonobj.subtitle3)
     btnlink.push(jsonobj.btn0link)
     btnlink.push(jsonobj.btn1link)
     btnlink.push(jsonobj.btn2link)
 }
 function LoadFirst(){
 
-    //document.getElementById("animeimg").srcset="https:/gogocdn.net/cover/boku-no-hero-academia-5th-season-dub.png"
-    if (intenturl.includes(".json")) {
-        console.log("Hi")
+     if (intenturl.includes(".json")) {
         var intentindex = intenturl.indexOf("raw");
         intenturl ="https://" + intenturl.substring(intentindex);
-        console.log(intenturl);
         Get(intenturl)
+    }
+    else
+    {
+        Get("raw.githubusercontent.com/niranjangirhe/NGDynamicPage/master/SampleJson/sample.json")
     }
 }
 function link(num)
