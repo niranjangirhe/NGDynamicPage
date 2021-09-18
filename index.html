@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <style>
+    #loader {
+      position: fixed;
+      z-index: 1000;
+      width: 100%;
+      height: 100vh;
+      background: #111827 url("/loader.gif") no-repeat center;
+      background-size: 30%;
+    }
+
+    fadeinout-animate {
+      width: 200px;
+      height: 200px;
+      background: red;
+      opacity: 0;
+    }
+
+    @keyframes fadeinout {
+      50% {
+        opacity: 1;
+      }
+
+      100% {
+        opacity: 0;
+      }
+    }
+  </style>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Welcome to NGDynamicPages</title>
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.0.2/firebase-analytics.js";
+    const firebaseConfig = {
+      apiKey: "AIzaSyCLPVoAyOC5AnCUWVrz6vw_WcPfpDhCeRA",
+      authDomain: "ngdynamicpage.firebaseapp.com",
+      projectId: "ngdynamicpage",
+      storageBucket: "ngdynamicpage.appspot.com",
+      messagingSenderId: "64083068816",
+      appId: "1:64083068816:web:7b077c10ec66371e551515",
+      measurementId: "G-YCSBJFGZME"
+    };
+  
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+  <link rel=icon href=/logo.png>
+</head>
+
+<body style="height: 100vh;" class="bg-gray-900" onload="hideLoader()">
+  <div id="loader" class="fadeinout-animate">
+  </div>
+
+  <header class="text-gray-400 bg-gray-900 body-font">
+    <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+      <a style="cursor: pointer;" href="/" class="flex title-font font-medium items-center text-white mb-4 md:mb-0">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="50" height="50"
+          viewBox="0 0 100 100">
+          <defs>
+            <radialGradient id="a" cx="0.04" cy="0.071" r="1.164"
+              gradientTransform="matrix(0.421, 0.907, -0.822, 0.382, 0.22, 0.002)" gradientUnits="objectBoundingBox">
+              <stop offset="0" stop-color="#d80000" />
+              <stop offset="1" />
+            </radialGradient>
+          </defs>
+          <g transform="translate(-96 -211)">
+            <rect width="100" height="100" rx="17" transform="translate(96 211)" fill="url(#a)" />
+            <g transform="translate(-0.395 1)">
+              <g transform="translate(113.395 214)"><text transform="translate(0 54)" fill="#fff" font-size="50"
+                  font-family="SegoeUI-Bold, Segoe UI" font-weight="700">
+                  <tspan x="0" y="0">N</tspan>
+                </text><text transform="translate(30 54)" fill="red" stroke="#fff" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="2" font-size="50" font-family="SegoeUI-Bold, Segoe UI"
+                  font-weight="700">
+                  <tspan x="0" y="0">G</tspan>
+                </text></g>
+              <g transform="translate(115.5 269)"><text transform="translate(0 22)" fill="#fff" font-size="20"
+                  font-family="SegoeUI-Bold, Segoe UI" font-weight="700">
+                  <tspan x="0" y="0">Ani</tspan>
+                </text><text transform="translate(32 22)" fill="#fff" font-size="20"
+                  font-family="SegoeUI-Bold, Segoe UI" font-weight="700">
+                  <tspan x="0" y="0">me</tspan>
+                </text></g>
+            </g>
+          </g>
+        </svg>
+        <span class="ml-3 text-xl">NGAnime</span>
+      </a>
+      <nav class="md:ml-auto flex flex-wrap items-center text-base justify-center">
+        <a id="tnc" href="" class="mr-5 hover:text-white">Terms of Conditions</a>
+        <a id="pp" href="" class="mr-5 hover:text-white">Privacy Policy</a>
+        <a href="/contactus.html" class="mr-5 hover:text-white">Contact us</a>
+      </nav>
+      <button
+        class="inline-flex items-center bg-gray-800 border-0 py-1 px-3 focus:outline-none hover:bg-gray-700 rounded text-base mt-4 md:mt-0"
+        onclick="download()">Download
+        <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+          class="w-4 h-4 ml-1" viewBox="0 0 24 24">
+          <path d="M5 12h14M12 5l7 7-7 7"></path>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+
+
+  <section class="text-gray-400 bg-gray-900 body-font">
+    <div class="container mx-auto flex px-5 py-3 md:flex-row flex-col items-center">
+      <div
+        class="lg:flex-grow md:w-1/2 px-20 lg:pr-12 md:pr-8 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+        <h1 id="title1" class="title-font sm:text-4xl text-3xl mb-4 font-medium text-white">Title</h1>
+        <p id="para1" class="mb-8 leading-relaxed">para1</p>
+        <div class="flex justify-center">
+          <button id="btn1"
+            class="inline-flex text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded text-lg"
+            onclick="download()"></button>
+        </div>
+      </div>
+      <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+        <img id="img" class="object-cover object-center rounded"
+          style="max-width: 55%; margin: auto; border-radius: 1rem;" alt="ss">
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <section id="quotesection" class="text-gray-400 bg-gray-900 body-font">
+    <div class="container px-5 py-12 mx-auto">
+      <div class="flex-wrap -m-4">
+        <div class="p-4">
+          <div class="h-full bg-gray-800 bg-opacity-40 px-8 py-10 rounded-lg overflow-hidden text-center relative">
+            <h2 id="title2" class="tracking-widest title-font font-medium text-gray-500 mb-1">Title</h2>
+            <h1 id="heading2" class="title-font sm:text-2xl text-xl font-medium text-white mb-3" id="animenameforquote">
+              Heading
+            </h1>
+            <p id="subtitle2" class="leading-relaxed mb-3 text-white" id="charname">Subtitle</p>
+            <p id="para2" class="mb-8 leading-relaxed" id="Quote"></p>
+            <a style="cursor: pointer;" class="text-red-400 inline-flex items-center" onclick="btn2()">
+              <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none"
+                stroke-linecap="round" stroke-linejoin="round" onclick="btn2()">
+                <path d="M5 12h14"></path>
+                <path d="M12 5l7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="text-gray-400 bg-gray-900 body-font">
+    <div class="container px-5 py-12 mx-auto">
+      <div class="xl:w-1/2 lg:w-3/4 w-full mx-auto text-center">
+        <h2 id="title3" class="text-white font-medium title-font tracking-wider text-sm">Title</h2>
+        <p id="subtitle3" class="text-gray-500">Subtitle</p>
+        <span class="inline-block h-1 w-10 rounded bg-red-500 mt-2 mb-2"></span>
+        <p id="para3" class="leading-relaxed text-lg">para</p>
+        <span class="inline-block h-1 w-10 rounded bg-red-500 mt-2 mb-2"></span>
+      </div>
+    </div>
+  </section>
+
+  <footer class="text-gray-400 bg-gray-900 body-font">
+    <div class="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">
+      <a class="flex title-font font-medium items-center md:justify-start justify-center text-white">
+        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="35" height="35"
+          viewBox="0 0 100 100">
+          <defs>
+            <radialGradient id="a" cx="0.04" cy="0.071" r="1.164"
+              gradientTransform="matrix(0.421, 0.907, -0.822, 0.382, 0.22, 0.002)" gradientUnits="objectBoundingBox">
+              <stop offset="0" stop-color="#d80000" />
+              <stop offset="1" />
+            </radialGradient>
+          </defs>
+          <g transform="translate(-96 -211)">
+            <rect width="100" height="100" rx="17" transform="translate(96 211)" fill="url(#a)" />
+            <g transform="translate(-0.395 1)">
+              <g transform="translate(113.395 214)"><text transform="translate(0 54)" fill="#fff" font-size="50"
+                  font-family="SegoeUI-Bold, Segoe UI" font-weight="700">
+                  <tspan x="0" y="0">N</tspan>
+                </text><text transform="translate(30 54)" fill="red" stroke="#fff" stroke-linecap="round"
+                  stroke-linejoin="round" stroke-width="2" font-size="50" font-family="SegoeUI-Bold, Segoe UI"
+                  font-weight="700">
+                  <tspan x="0" y="0">G</tspan>
+                </text></g>
+              <g transform="translate(115.5 269)"><text transform="translate(0 22)" fill="#fff" font-size="20"
+                  font-family="SegoeUI-Bold, Segoe UI" font-weight="700">
+                  <tspan x="0" y="0">Ani</tspan>
+                </text><text transform="translate(32 22)" fill="#fff" font-size="20"
+                  font-family="SegoeUI-Bold, Segoe UI" font-weight="700">
+                  <tspan x="0" y="0">me</tspan>
+                </text></g>
+            </g>
+          </g>
+        </svg>
+        <span class="ml-3 text-xl">NGAnime</span>
+      </a>
+      <p class="text-sm text-gray-400 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-800 sm:py-2 sm:mt-0 mt-4">© 2021
+        NGAnime —
+        <a class="text-gray-500 ml-1" target="_blank" rel="noopener noreferrer">@nganimes</a>
+      </p>
+      <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
+        <a href="/contactus.html" class="text-gray-400">
+          <img style="max-width: 22px; margin-right: 10px;" src="/email.png" alt="email">
+        </a>
+        <a class="text-gray-400">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+            viewBox="0 0 24 24">
+            <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-400">
+          <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5"
+            viewBox="0 0 24 24">
+            <path
+              d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z">
+            </path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-400">
+          <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            class="w-5 h-5" viewBox="0 0 24 24">
+            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+          </svg>
+        </a>
+        <a class="ml-3 text-gray-400">
+          <svg fill="currentColor" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="0"
+            class="w-5 h-5" viewBox="0 0 24 24">
+            <path stroke="none"
+              d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-2-2 2 2 0 00-2 2v7h-4v-7a6 6 0 016-6zM2 9h4v12H2z"></path>
+            <circle cx="4" cy="4" r="2" stroke="none"></circle>
+          </svg>
+        </a>
+      </span>
+    </div>
+  </footer>
+  <script>
+    function hideLoader() {
+      const e = document.getElementById("loader");
+      e.style.animation = "fadeinout 2s linear forwards"
+      e.addEventListener("animationend", (ev) => {
+        if (ev.type === "animationend") {
+          e.style.display = "none";
+          e.style.zIndex = -1;
+        }
+      }, false);
+    }
+  </script>
+  <script src="/main.js"></script>
+</body>
+
+</html>
