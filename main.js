@@ -9,14 +9,14 @@ function Get(yourUrl) {
     Httpreq.send(null);
     console.log(Httpreq.responseText+"done")
     jsonobj = JSON.parse(Httpreq.responseText);
-    document.getElementById("pgtitle0").innerHTML = jsonobj.title1
+    document.getElementById("pgtitle0").innerHTML = jsonobj.pgtitle
     document.getElementById("pgtitle1").innerHTML = jsonobj.pgtitle
     document.getElementById("title1").innerHTML = jsonobj.title1
     document.getElementById("title2").innerHTML = jsonobj.title2
     document.getElementById("title3").innerHTML = jsonobj.title3
     document.getElementById("btn0").innerHTML = jsonobj.btn0
     document.getElementById("btn1").innerHTML = jsonobj.btn1
-    document.getElementById("btn2").innerHTML = jsonobj.btn2
+    document.getElementById("btn2").innerHTML = jsonobj.btn2 + document.getElementById("btn2").innerHTML
     document.getElementById("para1").innerHTML = jsonobj.para1
     document.getElementById("para2").innerHTML = jsonobj.para2
     document.getElementById("para3").innerHTML = jsonobj.para3
@@ -27,6 +27,9 @@ function Get(yourUrl) {
     document.getElementById("twiter").href = jsonobj.twiter
     document.getElementById("linkedin").href = jsonobj.linkedin
     document.getElementById("insta").href = jsonobj.insta
+    document.getElementById("mail").innerHTML = jsonobj.mail
+    document.getElementById("address").innerHTML = jsonobj.address
+    document.getElementById("mailaction").action = "https://formsubmit.co/"+ jsonobj.mail
     console.log("hi",jsonobj.title1,jsonobj.title2,jsonobj.title3,jsonobj.para1,jsonobj.para2,jsonobj.para3,jsonobj.heading2,jsonobj.subtitle2,jsonobj.subtitle3)
     btnlink.push(jsonobj.btn0link)
     btnlink.push(jsonobj.btn1link)
@@ -45,7 +48,7 @@ function LoadFirst(){
 }
 function link(num)
 {
-    if(btnlink[num]!="" && btnlink[num]==null)
+    if(btnlink[num]!="" && btnlink[num]!=null)
     {
         window.location.href=btnlink[num]
     }
