@@ -23,10 +23,6 @@ function Get(yourUrl) {
     document.getElementById("heading2").innerHTML = jsonobj.heading2
     document.getElementById("subtitle2").innerHTML = jsonobj.subtitle2
     document.getElementById("subtitle3").innerHTML = jsonobj.subtitle3
-    document.getElementById("fb").href = jsonobj.fb
-    document.getElementById("twiter").href = jsonobj.twiter
-    document.getElementById("linkedin").href = jsonobj.linkedin
-    document.getElementById("insta").href = jsonobj.insta
     console.log("hi",jsonobj.title1,jsonobj.title2,jsonobj.title3,jsonobj.para1,jsonobj.para2,jsonobj.para3,jsonobj.heading2,jsonobj.subtitle2,jsonobj.subtitle3)
     btnlink.push(jsonobj.btn0link)
     btnlink.push(jsonobj.btn1link)
@@ -34,7 +30,6 @@ function Get(yourUrl) {
 }
 function LoadFirst(){
 
-    //document.getElementById("animeimg").srcset="https:/gogocdn.net/cover/boku-no-hero-academia-5th-season-dub.png"
     if (intenturl.includes(".json")) {
         console.log("Hi")
         var intentindex = intenturl.indexOf("raw");
